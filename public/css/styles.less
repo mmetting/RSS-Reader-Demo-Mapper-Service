@@ -1,0 +1,264 @@
+@import "../lib/patternfly/less/patternfly.less";
+@import "../lib/font-awesome/less/font-awesome.less";
+@icon-font-path: "/lib/bootstrap/fonts/";
+@font-path: "/lib/patternfly/dist/fonts";
+@fa-font-path: "/lib/font-awesome/fonts";
+
+table.table{
+  thead {
+    background: none;
+  }
+  tr {
+    cursor: pointer;
+    .btn-group {
+      margin: 4px auto;
+    }
+  }
+}
+
+
+// Request Input =================================
+
+.fh-request-input{
+  background: white; // rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.2);
+  display: inline-block;
+  margin: 20px 0;
+  padding: 5px;
+  width: 75%;
+  select{
+    border:none;
+    background:none;
+    box-shadow: none;
+  }
+  input[type="text"]{
+    background: none;
+    border: none;
+    border-left: 1px solid rgba(0,0,0,0.3);
+    box-shadow: none;
+    width: 85%;
+  }
+}
+
+.fh-request-actions{
+  display: inline-block;
+  width: 24%;
+  button, a.btn{
+    padding: 13px 0px 12px 0px;
+    width: 38%;
+  }
+  a#doneEditing {
+    width: 20%;
+  }
+}
+
+
+.fh-request-nav{
+  margin-bottom: 20px;
+}
+
+// Request headers =================================
+
+.fh-request-headers{
+  li{
+    margin-bottom: 5px;
+    &:last-child{
+      margin: 0;
+      border: none;
+    }
+    input[type="text"]{
+     margin: 0;
+     width: 44%
+    }
+    select{
+      margin: 0;
+      width: 36%
+    }
+    .add-header {
+      display: none;
+    }
+  }
+  li.headerRow:last-of-type {
+    .add-header {
+      display: inline-block;
+    }
+  }
+  
+  /* In rows with a content type, the headerRow is the 2nd of type,
+  where content-type li is 1st of type. */
+  ul.hasContentType li.headerRow:nth-of-type(2){
+    .remove-header {
+      display: none;
+    }
+  }
+  li.headerRow:only-of-type {
+    .remove-header {
+      display: none;
+    }
+  }
+  label { 
+    display: inline-block;
+    margin-right: 3%;
+  }
+  
+  span{
+    a{
+      display: inline-block;
+      line-height: 26px;
+      padding: 0 5px;
+      color: @gray-light;
+      &:hover{
+        color: @link-color;
+        &:last-child{color: red;}
+      }
+    }
+    .reorder{
+      cursor: move;
+    }
+  }
+}
+
+.fh-request-body{
+  textarea{
+    width: 98%!important;
+  }
+}
+
+.mountPath{
+  input{
+    width: 95%!important;
+  }
+}
+
+
+// Treeview =================================
+
+.treeview{
+  border: 1px solid rgba(0,0,0,.1);
+  padding-bottom: 0;
+  .list-group{margin-bottom: 0;}
+  .list-group-item{
+    padding: 3px 10px!important;
+  }
+}
+
+.loader {
+  display: none;
+}
+
+.request-pending .loader {
+  display: block;
+}
+
+.fh-result .fh-response {
+  display: none;
+}
+
+.request-done .fh-result .fh-response {
+  display: block;
+}
+
+.request-done .fh-response-pre, .request-pending .fh-response-pre {
+  display: none;
+}
+
+.response-headers .dl-horizontal {
+   dt {
+     width: 260px;
+   }
+   dd {
+     margin-left: 280px;
+   }
+}
+
+.noMapping {
+  text-align: center;
+  padding: 10px 60px;
+}
+
+.alert {
+  position: fixed;
+}
+
+.alert-error {
+  .alert-danger;
+}
+
+pre#responseRaw {
+  height: 350px;
+}
+
+pre#requestRaw {
+  height: 100px;
+}
+
+.bodyEditor {
+  height: 350px;
+  overflow: scroll;
+  background-color: #272822;
+ & > div {
+    padding: 0;
+    height: 100%;
+  }
+  pre {
+    height: 100%;
+  }
+  h3 {
+    color: #fff;
+    margin-left: 50px;
+  }
+}
+
+.snippetEditor {
+  height: 210px;
+}
+#sample-curl {
+  height: 50px;
+}
+
+.treeView {
+  .treeNodeName {
+    display: inline-block;
+    max-width: 54%;
+    overflow: hidden;  
+  }
+  .list-group-item>.badge {
+    width: 36px;
+    height: 17px;
+    .treeWrap {
+      padding: 3px 0 0 0;
+      height: 100%;
+      width: 100%;
+      &.times {
+        background: @btn-danger-bg;
+      }
+      &.check {
+        background : @brand-success;
+      }
+    }
+  }
+  /* Select all enabled/disabled spans */
+  .list-group-item>span.badge:last-of-type{
+    padding: 0;
+  }  
+}
+
+.tableLegend {
+  div {
+    display: inline-block;
+    &.fieldName {
+      width: 72%;
+    }
+    &.fieldEnabled, &.fieldType {
+      width: 12%;
+      text-align: right;
+    }
+    &.fieldType {
+      padding-right: 2px;
+    }
+  }
+}
+
+.card-pf-heading form, .card-pf-heading form label {
+  margin-right: 12px;
+}
