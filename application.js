@@ -29,8 +29,7 @@ app.use(mbaasExpress.fhmiddleware());
 // fhlint-begin: custom-routes
 app.use('/', apiMapper({
   transformations: {
-    // Add your custom transformations here! `customMixedArrayTransform` is an example of this.
-    mixedArrayTransform: require('./transformations/mixedArrayTransform.js')
+    contentToImageTransformation: require('./transformations/contentToImageTransformation.js')
   }
 }));
 
