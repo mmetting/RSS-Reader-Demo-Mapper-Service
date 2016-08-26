@@ -7,16 +7,13 @@ exports.transform = function(content) {
     var regex = /<img.*?src="(.*?)"/;
     var array = regex.exec(content);
     
-    console.log(array);
-    
-    var imageSrc = "regex.exec(content)[1]";
-    
-    if (imageSrc.length > 0) {
-      return imageSrc;   
-    } else {
-      return content;
+    if (array !== null) {
+      var imageSrc = array[1];  
+      if (imageSrc.length > 0) {
+        return imageSrc;   
+      }
     }
-  } else {
-    return content;
   }
+  
+  return content;
 };
