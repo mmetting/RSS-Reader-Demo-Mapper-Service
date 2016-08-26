@@ -3,8 +3,16 @@ exports.type = "string";
 // Then, implement the transformation function
 exports.transform = function(content) {
 
-  var regex = /<img.*?src="(.*?)"/;
-  var imageSrc = regex.exec(content)[1];
-
-  return imageSrc;
+  if (content.length > 0) {
+    var regex = /<img.*?src="(.*?)"/;
+    var imageSrc = regex.exec(content)[1];
+    
+    if (imageSrc.length > 0) {
+      return imageSrc;   
+    } else {
+      return content;
+    }
+  } else {
+    return content;
+  }
 };
