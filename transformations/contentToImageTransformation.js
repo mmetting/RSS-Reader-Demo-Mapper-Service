@@ -5,7 +5,11 @@ exports.transform = function(content) {
 
   if (content.length > 0) {
     var regex = /<img.*?src="(.*?)"/;
-    var imageSrc = regex.exec(content)[1];
+    var array = regex.exec(content);
+    
+    console.log(array);
+    
+    var imageSrc = "regex.exec(content)[1]";
     
     if (imageSrc.length > 0) {
       return imageSrc;   
