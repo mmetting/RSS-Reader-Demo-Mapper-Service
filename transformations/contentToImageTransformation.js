@@ -4,6 +4,7 @@ exports.type = "string";
 exports.transform = function(content) {
 
   if (content.length > 0) {
+    //extract the first image url
     var regex = /<img.*?src="(.*?)"/;
     var array = regex.exec(content);
     

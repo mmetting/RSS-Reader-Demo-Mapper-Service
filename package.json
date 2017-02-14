@@ -1,6 +1,6 @@
 {
-  "name": "fh-api-mapper",
-  "version": "1.0.5",
+  "name": "rss-reader-demo-mapper-service",
+  "version": "1.0.0",
   "bin": {
     "bower": "node_modules/bower/bin/bower",
     "browserify": "node_modules/browserify/bin/cmd.js"
@@ -49,6 +49,6 @@
     "test": "grunt test",
     "start": "node application.js"
   },
-  "license": "mit",
+  "license": "gpl3",
   "main": "application.js"
 }
