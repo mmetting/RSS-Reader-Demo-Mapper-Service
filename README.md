@@ -18,20 +18,24 @@ As well as using built-in mappings, you can also write your own transformation f
 1. In the studio's code editor, open the `application.js` file in the root directory.
 2. You'll notice the API mapper route is instantiated by providing one optional transformation, called `mixedArrayTransform`. By looking at this, you can probably figure out how to add your own!  
 We're going to add a transformation called 'even', which changes even numbers to 0, and odd numbers to 1 - really simple! Here's the implementation:
-    
-    // First, tell the mapper it operates on numbers
-    exports.type = 'number';
-    // then, implement the function.
-    exports.transform = function(n){
-      return n%2;
-    };
-      
+
+```        
+// First, tell the mapper it operates on numbers
+exports.type = 'number';
+// then, implement the function.
+exports.transform = function(n){
+  return n%2;
+};
+```    
+
 3. Now that we've created our transformation file, we need to include it in `application.js`. We'll replace the instantiation of the API mapper route with something like this:
-    
-    app.use('/', require('./lib/api')({      
-      transformations : {
-        even : require('./transformations/even.js')
-      }
-    }));
-    
+
+```    
+app.use('/', require('./lib/api')({      
+  transformations : {
+    even : require('./transformations/even.js')
+  }
+}));
+```
+
 4. You can now use your new transformation on numeric types!
