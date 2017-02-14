@@ -1,48 +1,17 @@
-#RedHat Mobile API Mapper   [![Build Status](https://travis-ci.org/feedhenry-templates/fh-api-mapper.png?branch=master)](https://travis-ci.org/feedhenry-templates/fh-api-mapper)
-The API Mapper is a visual tool for transforming the response of JSON APIs. It allows users to:
+##RSS Reader Demo Mapper Service
+This service is based on RHMAP's API Mapper, which is a visual tool for transforming the response of JSON APIs. It allows users to:
 
 * Rename Fields
 * Exclude fields which are not needed
 * Transform Fields using built-in transformations, or custom transforms they have defined themselves
 
-##Setup
-There are currently some workarounds needed to get the API Mapper up and running within the platform. 
-
+###Setup
 1. Make the newly created service public
 ![Public Service](/public/images/publicservice.jpg)
 2. Visit the data browser, depending on your application configuration a "Upgrade Database" action will be available, this means the application is using an old/legacy shared database and it needs to be upgraded to use a dedicated one. Note the application needs to be first finished its initial deploy and be running to perform this task.
 ![Public Service](/public/images/databrowser.jpg)
 3. Re-deploy the service
 4. You can now use the API mapper under the "Preview" section of the studio. The mapper can be popped out of the studio fullscreen by visiting the deploy host of this service in a web browser. 
-
-##Creating your first request
-Today, we're going to connect to a GitHub JSON API.
-
-1. To get started, from the home page of the api mapper, select "New Request". 
-2. In the URL field, paste the URL of our API: `https://api.github.com/repos/feedhenry-templates/fh-api-mapper`
-3. Our API requires us to add a `User-Agent` header field. In the "Header Key" value, write `User-Agent`. In the "Header Value" field, write `FHApiMapper`.
-4. Let's set up where this API gets mounted. Select the "Mount Path" tab, and enter a mount path - we're using `/thisrepo`. 
-5. Click 'Create Request'. We have now saved our first request.
-6. Let's try this request. Click the blue "Send Request" button. 
-7. In the "Response" section, verify the "Response Headers" and "Response Body" sections appear as expected. You can now see the response body. 
-
-##Add a Mapping
-1. Once we've created and saved a request, we can then add a mapping. Click the blue "Add a Mapping" button. 
-2. Once the mapping is created, we see a list of fields the API returns on the left. This API has a lot of fields. We're now going to modify the response which our API returns. 
-3. Click the "owner" field, and the "Field Mapping" panel should update. We can now define transformations on this field. 
-4. We're going to discard the "owner" field, and all of it's children. Untick the "Use this field" box. The change is automatically saved. 
-5. Let's rename the `id` field to be called `_id`. Select the "id" field on the left, and in the "rename field" box, type `_id`. 
-6. Lastly, we're going to repurpose the boolean `private` field to be a `public` field. As part of this, we're also going to invert the value of this field. As before, rename the field from `private` to `public`. 
-Now, select a transformation called "invert". 
-7. Now that we've transformed our response, let's see it in action. In the "Response" section, visit the "Response Body" tab. 
-On the left is the previous API response. On the right is the Mapped Response. 
-8. Verify the mapped response has a field named "public" set to true, and the `id` field now reads `_id`. Verify there is no `owner` field. 
-
-##Using the Mapped API
-1. Now that we've mapped our API, let's make use of this. First, we're going to test the mapped API using the command line. 
-2. Navigate to the "Sample Code" section. Copy the "cURL Request" to the clipboard, and try the command in a <abbr title="Unix, Linux or Mac">\*nix</abbr> terminal.
-3. Verify the mapped response is returned. 
-4. You can also use the Node.js code snippets. Copy the `Node.js Request Module` snippet into a new file called `test.js`. You can then run this file from the terminal by running `node test.js`. You should see the mapped response output. 
 
 ##Writing your own Mappings
 As well as using built-in mappings, you can also write your own transformation functions. Here's how. 
@@ -66,13 +35,3 @@ We're going to add a transformation called 'even', which changes even numbers to
     }));
     
 4. You can now use your new transformation on numeric types!
-
-## Developing
-
-    grunt serve
-
-Open [http://localhost:8001/](http://localhost:8001/)
-
-## Running Tests
-
-    grunt test
