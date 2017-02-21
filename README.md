@@ -8,11 +8,11 @@ This service is based on RHMAP's API Mapper, which is a visual tool for transfor
 ## Usage in the RSS Reader Demo
 For our demo, we are using the RSS Mapper Service to streamline the response from the [Connector Service](https://github.com/mmetting/RSS-Reader-Demo-RSS-Connector). We don't want the client to retrieve information, which are not necessary and can be considered overhead. Additionally, we would like to transform the response to extract images from the content of the RSS feed.
 
-_In other words_: We mobile optimize our RSS feed!
+_In other words_: We mobile-optimise our RSS feed!
 
 > In order to use the Mapping Service, the [Connector Service](https://github.com/mmetting/RSS-Reader-Demo-RSS-Connector) would need to be deployed and reachable from the internet. To check your Connector Service, try to reach it via a browser: ![alt text](./pictures/get_url.png "Get the URL") ![alt text](./pictures/append_feeds.png "Result")
 
-## Import an exisiting MBaaS Service to your domain
+## Provision a new API Mapper Service
 ### Prepare
 
 - Click on `MBaaS Services & APIs`
@@ -24,7 +24,7 @@ _In other words_: We mobile optimize our RSS feed!
 ![alt text](./pictures/specify_details.png "Specify the name")
 
 - Click `Next`
-- Wait for the service to Provision
+- Wait for the service to provision
 - Click `Finish`, you'll be directed to the details screen of your new service.
 ![alt text](./pictures/finish_provisioning.png "Finished provisioning")
 
@@ -121,6 +121,8 @@ app.use('/', apiMapper({
 
 - The final result should look like the following:
 ![alt text](./pictures/mapping.png "Mapping")
+
+> Sometimes the AppStudio reverts your changes on the mapping, please make sure, all rename actions and setting the transformation on the `content -> image` array item are set.
 
 - Click `Done`
 - Select the `Deploy` tab in the AppStudio and deploy the MBaaS service:
