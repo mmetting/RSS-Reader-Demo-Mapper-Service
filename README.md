@@ -110,14 +110,14 @@ app.use('/', apiMapper({
 - Expand the Array items section
 ![alt text](./pictures/expanded_array_items.png "Expanded array items")
 
-- Click on the `link` array item and uncheck `Use this field?`
-- Click on the `pubDate` array item and uncheck `Use this field?`
+- Click on the `link` array item and un-check `Use this field?`
+- Click on the `pubDate` array item and un-check `Use this field?`
 - Click on the `content` array item:
     - Rename to `image`
     - Select the `contentToImageTransformation` transformation
 - Click on the `contentSnippet` array item:    
     - Rename to `teaser`
-- Click on the `guid` array item and uncheck `Use this field?`
+- Click on the `guid` array item and un-check `Use this field?`
 
 - The final result should look like the following:
 ![alt text](./pictures/mapping.png "Mapping")
